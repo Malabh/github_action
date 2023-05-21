@@ -26,15 +26,13 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a set of command using the runners shell
-      - name: Run a multi-line script
-        run: echo story of every programmer:- 
-                   I hate programming,
-                   I hate programming,
-                   I hate programming,
-                        It works!!!,
-                   I love programming.
+      -   name: Post to a Slack channel
+          id: slack
+          uses: slackapi/slack-github-action@v1.16.0
+          with:
+            channel-id: 'USER_ID'
+            slack-message: 'posting from a github action!'
+          env:
+            SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
                  
 
-      # Runs a single commands using the runners shell
-      - name: Run a single-line script
-        run: echo So dont give up
