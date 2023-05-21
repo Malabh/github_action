@@ -37,4 +37,4 @@ jobs:
 
       # Runs a single commands using the runners shell
       - name: Run a single-line script
-        run: "echo So don't give up"
+        run: echo So dont give up
